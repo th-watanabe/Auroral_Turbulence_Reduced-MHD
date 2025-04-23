@@ -1,0 +1,37 @@
+ &cmemo memo="Spectral RMHD code for auroral turbulence (r0.4, slab, nonlinear)", &end
+ &calct calc_type="nonlinear", fd_type="upwind", fd_filt="off" &end
+ &run_n inum=009, &end
+ &files f_log="./Log/rmhds_r0.4.slab_nonlinear.run09_j-phi_nu2.0e-8.",
+        f_hst="./Hst/rmhds_r0.4.slab_nonlinear.run09_j-phi_nu2.0e-8.",
+        f_fld="./Fld/rmhds_r0.4.slab_nonlinear.run09_j-phi_nu2.0e-8.",
+        f_cnt="./Cnt/rmhds_r0.4.slab_nonlinear.run09_j-phi_nu2.0e-8.", &end
+ &runlm e_limit=86000.d0,   &end
+ &times tend=30000.d0, 
+        dtout_mag=500.d0,
+        dtout_ion=100.d0,
+        dtout_eng=0.1d0, &end
+ &deltt dt=0.01d0, &end
+ &equib equib_type="slab", &end
+ &physp nu    = 2.d-8,
+        eta   = 2.d-8, 
+        s_hat = 0.d0,  &end
+ &ionop e0    = 1.d-3, 
+        idns0 = 1.d+1,
+        mp    = 0.5d0, 
+        mh    = 1.d0,
+        dperp = 2.d-5,
+        alpha = 7.d-4, &end
+ &initd iamp  = 1.d-5, 
+        pamp  = 1.d-5, 
+        mmm   = 1, 
+        mxi   =-2, 
+        myi   = 1, &end
+
+! &initd iamp  = 1.d-4, 
+!        pamp  = 1.d-5, 
+! &initd iamp  = 1.d-6, 
+!        pamp  = 1.d-7, 
+!
+!        mmm   = 3, 
+!        mxi   =-1, -2, -3, 
+!        myi   = 1, 1, 1, &end

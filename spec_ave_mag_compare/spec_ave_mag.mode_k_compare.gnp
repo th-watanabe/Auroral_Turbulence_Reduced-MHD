@@ -1,0 +1,53 @@
+#
+
+set term post eps enhanced solid color "Times-Roman" 20
+
+set size 0.8,0.8
+
+### set ylabel "{/Symbol \362}dz |k {/Symbol f}_k|^2, {/Symbol \362}dz |k {/Symbol y}_k|^2"
+set ylabel "{/Symbol \362}dz |k {/Symbol f}_k|^2"
+
+set logscale x
+set logscale y
+
+set format y "%.0tx10^{%T}"
+
+set xrange [6.28:2130]
+
+set yrange [1.e-10:*]
+
+nz = 256
+l  = 1000
+dz = l / nz
+
+set key bottom left spacing 1.5
+#set key bottom left
+
+set xlabel "k_{perp} L"
+
+set output "rmhds_r0.4.slab_nonlinear.run09_spec_ave_mag_compare.mode_k.phi.eps"
+
+plot "./Log/rmhds_r0.4.slab_nonlinear.run09_j-phi_nu2.0e-8.spec2kperp1d_mag.dat" \
+      using 1:2 t "{/Symbol n}={/Symbol h}=2.e-8" w l lw 3, \
+     "./Log/rmhds_r0.4.slab_nonlinear.run09_j-phi_nu5.0e-8.spec2kperp1d_mag.dat" \
+      using 1:2 t "{/Symbol n}={/Symbol h}=5.e-8" w l lw 3, \
+     "./Log/rmhds_r0.4.slab_nonlinear.run09_j-phi_nu1.25e-7.spec2kperp1d_mag.dat" \
+      using 1:2 t "{/Symbol n}={/Symbol h}=1.25e-7" w l lw 3, \
+  f(x)=1.e-2/x**(5.0/3.0), f(x) t "k^{-5/3}" w l lt 0 lw 3
+#  f(x)=1.e-3/x**(5.0/3.0), f(x) t "k^{-5/3}" w l lw 2
+
+
+set ylabel "{/Symbol \362}dz |k {/Symbol y}_k|^2"
+
+set output "rmhds_r0.4.slab_nonlinear.run09_spec_ave_mag_compare.mode_k.psi.eps"
+
+plot "./Log/rmhds_r0.4.slab_nonlinear.run09_j-phi_nu2.0e-8.spec2kperp1d_mag.dat" \
+      using 1:3 t "{/Symbol n}={/Symbol h}=2.e-8" w l lw 3, \
+     "./Log/rmhds_r0.4.slab_nonlinear.run09_j-phi_nu5.0e-8.spec2kperp1d_mag.dat" \
+      using 1:3 t "{/Symbol n}={/Symbol h}=5.e-8" w l lw 3, \
+     "./Log/rmhds_r0.4.slab_nonlinear.run09_j-phi_nu1.25e-7.spec2kperp1d_mag.dat" \
+      using 1:3 t "{/Symbol n}={/Symbol h}=1.25e-7" w l lw 3, \
+  f(x)=1.e-2/x**(5.0/3.0), f(x) t "k^{-5/3}" w l lt 0 lw 3
+#  f(x)=1.e-3/x**(5.0/3.0), f(x) t "k^{-5/3}" w l lw 2
+
+

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+  make SDIR=src EXTRA="-DUSE_TERM_Y2X"  clean gkvp
+#  make SDIR=src EXTRA="-DTEM256MPI -DUSE_TERM_Y2X"  clean gkvp
+
+#example make : BM data 32vh/2048mpi y2x-term (1) ####
+#  make SDIR=src.f56.tune2r.0813 EXTRA="-DBM2048MPI -DUSE_TERM_Y2X"  clean gkvp
+#example make : XL data 64vh/4096mpi y2zm-term (2) ####
+# make SDIR=src.f56.tune2r.0813 EXTRA="-DXL4096MPI -DUSE_TERM_Y2ZM" clean gkvp
+#example make : XL data 64vh/4096mpi y2zm-term (3) ####
+# make SDIR=src.f56.tune2r.0813 EXTRA="-DXL4096TMP -DUSE_TERM_Y2ZM" clean gkvp
+
+

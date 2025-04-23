@@ -1,0 +1,37 @@
+#
+set term post solid color eps enhanced
+
+
+set size 0.8,0.8
+
+set size square
+
+set view map
+unset surface
+set pm3d
+
+set xrange [6:2136]
+set yrange [0.006:3.217]
+set cbrange [1.e-10:1.e-4]
+set logscale xyzcb
+
+set xlabel "k_{perp}L"
+set ylabel "k_{para}L"
+
+A = 0.005
+set arrow 1 from 6,A*6**(0.66666666) to 2130,A*2130**(0.66666666) nohead linecolor 'white' lw 3 front
+
+unset key
+
+set output "rmhds_r0.4.slab_nonlinear.run09_j-phi_nu2.0e-8.spec2_mag_kp2-3.KE.eps"
+
+show arrow 1
+set title "Kinetic energy spectrum in k-space"
+splot "rmhds_r0.4.slab_nonlinear.run09_j-phi_nu2.0e-8.spec2_mag.dat" u 1:2:3
+
+set output "rmhds_r0.4.slab_nonlinear.run09_j-phi_nu2.0e-8.spec2_mag_kp2-3.ME.eps"
+
+show arrow 1
+set title "Magnetic energy spectrum in k-space"
+splot "rmhds_r0.4.slab_nonlinear.run09_j-phi_nu2.0e-8.spec2_mag.dat" u 1:2:4
+
